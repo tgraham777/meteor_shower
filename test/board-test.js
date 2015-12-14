@@ -40,6 +40,17 @@ describe('Board', function() {
       let board = new Board();
       assert.isArray(board.players);
     });
+
+    it('can join sub-arrays of the players, bullets, and meteors into a single oblects array', function(){
+      let board = new Board();
+      let player = board.addPlayer();
+      let meteor = board.addMeteor();
+      let bullet = board.addBullet();
+
+      assert.equal(board.joinObjects()[0], meteor);
+      assert.equal(board.joinObjects()[1], player);
+      assert.equal(board.joinObjects()[2], bullet);
+    });
   });
 
   describe('when player is instantiated', function() {

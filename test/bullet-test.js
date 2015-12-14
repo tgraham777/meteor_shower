@@ -50,12 +50,12 @@ describe('Bullet', function() {
       assert.equal(bullet.velocity.y, -6);
     });
 
-    it('should move straight down from its starting position', function() {
+    it('should move straight up from its starting position', function() {
       let bullet = new Bullet(this.board);
       let originalCenterX = bullet.center.x;
       let originalCenterY = bullet.center.y;
 
-      bullet.moveUp();
+      bullet.update();
 
       assert.equal(bullet.center.x, originalCenterX);
       assert.equal(bullet.center.y, originalCenterY - 6);
