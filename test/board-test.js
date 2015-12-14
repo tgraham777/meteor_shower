@@ -271,4 +271,21 @@ describe('Board', function() {
       assert.equal(board.meteors.length, 0)
     });
   });
+
+  describe('when bullet exits the screen', function() {
+    it('the board removes the bullet from the bullets array', function(){
+      let board = new Board();
+      let player = board.addPlayer();
+      let bullet = board.addBullet();
+
+      assert.equal(board.players.length, 1)
+      assert.equal(board.bullets.length, 1)
+
+      bullet.center.y = 0 - bullet.size.height / 2;
+
+      board.removeInActiveObjects();
+
+      assert.equal(board.bullets.length, 0)
+    });
+  });
 });
