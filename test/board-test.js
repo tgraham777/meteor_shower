@@ -116,6 +116,7 @@ describe('Board', function() {
       bullet.center.x = 70;
       bullet.center.y = 70;
 
+      board.changeImpactedMeteorAndObjectStatuses();
       board.removeInActiveObjects();
 
       assert.equal(board.bullets.length, 0)
@@ -139,6 +140,7 @@ describe('Board', function() {
       player.center.x = 70;
       player.center.y = 70;
 
+      board.changeImpactedMeteorAndObjectStatuses();
       board.removeInActiveObjects();
 
       assert.equal(board.bullets.length, 0)
@@ -175,6 +177,7 @@ describe('Board', function() {
       bullet3.center.x = 100;
       bullet3.center.y = 100;
 
+      board.changeImpactedMeteorAndObjectStatuses();
       board.removeInActiveObjects();
 
       assert.equal(board.bullets.length, 2)
@@ -202,6 +205,7 @@ describe('Board', function() {
       player.center.x = 70;
       player.center.y = 70;
 
+      board.changeImpactedMeteorAndObjectStatuses();
       board.removeInActiveObjects();
 
       assert.equal(board.players.length, 0)
@@ -222,6 +226,7 @@ describe('Board', function() {
       player1.center.x = 70;
       player1.center.y = 70;
 
+      board.changeImpactedMeteorAndObjectStatuses();
       board.removeInActiveObjects();
 
       assert.equal(board.players.length, 1)
@@ -244,6 +249,7 @@ describe('Board', function() {
       player1.center.x = 70;
       player1.center.y = 70;
 
+      board.changeImpactedMeteorAndObjectStatuses();
       board.removeInActiveObjects();
 
       assert.equal(board.players.length, 0)
@@ -265,6 +271,7 @@ describe('Board', function() {
       meteor.center.x = 70;
       meteor.center.y = board.height - meteor.size.height / 2;
 
+      board.changeImpactedMeteorAndObjectStatuses();
       board.removeInActiveObjects();
 
       assert.equal(board.players.length, 0)
@@ -300,6 +307,7 @@ describe('Board', function() {
 
       meteor.center.x = -meteor.size.width / 2;
 
+      board.changeImpactedMeteorAndObjectStatuses();
       board.removeInActiveObjects();
 
       assert.equal(board.meteors.length, 0)
@@ -315,6 +323,7 @@ describe('Board', function() {
 
       meteor.center.x = board.width + meteor.size.width / 2;
 
+      board.changeImpactedMeteorAndObjectStatuses();
       board.removeInActiveObjects();
 
       assert.equal(board.meteors.length, 0)
