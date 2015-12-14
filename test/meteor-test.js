@@ -58,7 +58,7 @@ describe('Meteor', function() {
       let originalCenterX = meteor.center.x;
       let originalCenterY = meteor.center.y;
 
-      meteor.moveDown();
+      meteor.update();
 
       assert.equal(meteor.center.x, originalCenterX);
       assert.isAbove(meteor.center.y, originalCenterY);

@@ -40,6 +40,17 @@ describe('Board', function() {
       let board = new Board();
       assert.isArray(board.players);
     });
+
+    it('can join sub-arrays of the players, bullets, and meteors into a single oblects array', function(){
+      let board = new Board();
+      let player = board.addPlayer();
+      let meteor = board.addMeteor();
+      let bullet = board.addBullet();
+
+      assert.equal(board.joinObjects()[0], meteor);
+      assert.equal(board.joinObjects()[1], player);
+      assert.equal(board.joinObjects()[2], bullet);
+    });
   });
 
   describe('when player is instantiated', function() {
@@ -196,6 +207,7 @@ describe('Board', function() {
       assert.equal(board.players.length, 0)
       assert.equal(board.meteors.length, 0)
     });
+
     it('the board removes the first player and meteor from the player and meteor collections', function(){
       let board = new Board();
       let player1 = board.addPlayer();
@@ -238,6 +250,25 @@ describe('Board', function() {
       assert.equal(board.meteors.length, 1)
       assert.isFalse(meteor1.active)
       assert.isTrue(meteor2.active)
+    });
+  });
+
+  describe('when meteor collides with ground', function() {
+    it('the board removes the player and meteor', function(){
+      let board = new Board();
+      let player = board.addPlayer();
+      let meteor = board.addMeteor();
+
+      assert.equal(board.players.length, 1)
+      assert.equal(board.meteors.length, 1)
+
+      meteor.center.x = 70;
+      meteor.center.y = board.height - meteor.size.height / 2;
+
+      board.removeInActiveObjects();
+
+      assert.equal(board.players.length, 0)
+      assert.equal(board.meteors.length, 0)
     });
   });
 });
