@@ -40,6 +40,12 @@ describe('Meteor', function() {
       assert.isBelow(meteor.size.height, 42);
     });
 
+    it('should have a point value based on its width and height', function() {
+      let meteor = new Meteor(this.board);
+
+      assert.equal(meteor.pointValue, Math.floor(-((meteor.size.width + meteor.size.height) / 2) + 42));
+    });
+
     it('should be included in the board\'s array of meteor objects', function() {
       let meteor = new Meteor(this.board);
       assert.include(this.board.meteors, meteor);
