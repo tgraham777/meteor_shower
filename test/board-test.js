@@ -290,7 +290,7 @@ describe('Board', function() {
   });
 
   describe('when meteor exits the screen horizontally', function() {
-    it('on the right, the board removes the meteor from the meteor array', function(){
+    it('on the left, the board removes the meteor from the meteor array', function(){
       let board = new Board();
       let player = board.addPlayer();
       let meteor = board.addMeteor();
@@ -305,7 +305,7 @@ describe('Board', function() {
       assert.equal(board.meteors.length, 0)
     });
 
-    it('on the left, the board removes the meteor from the meteor array', function(){
+    it('on the right, the board removes the meteor from the meteor array', function(){
       let board = new Board();
       let player = board.addPlayer();
       let meteor = board.addMeteor();
