@@ -53,15 +53,23 @@ describe('Meteor', function() {
       assert.isBelow(meteor.velocity.y, 5);
     });
 
-    it('should move straight down from its starting position', function() {
+    it('should have a random X velocity between -2 and 2', function() {
+      let meteor = new Meteor(this.board);
+      assert.isAbove(meteor.velocity.x, -3);
+      assert.isBelow(meteor.velocity.x, 3);
+    });
+
+    it('should move from its starting position', function() {
       let meteor = new Meteor(this.board);
       let originalCenterX = meteor.center.x;
       let originalCenterY = meteor.center.y;
+      let changeInX       = meteor.velocity.x;
+      let changeInY       = meteor.velocity.y;
 
       meteor.update();
 
-      assert.equal(meteor.center.x, originalCenterX);
-      assert.isAbove(meteor.center.y, originalCenterY);
+      assert.equal(meteor.center.x, originalCenterX + changeInX);
+      assert.equal(meteor.center.y, originalCenterY + changeInY);
     });
   });
 });

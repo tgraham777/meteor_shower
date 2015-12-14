@@ -288,4 +288,36 @@ describe('Board', function() {
       assert.equal(board.bullets.length, 0)
     });
   });
+
+  describe('when meteor exits the screen horizontally', function() {
+    it('on the right, the board removes the meteor from the meteor array', function(){
+      let board = new Board();
+      let player = board.addPlayer();
+      let meteor = board.addMeteor();
+
+      assert.equal(board.players.length, 1)
+      assert.equal(board.meteors.length, 1)
+
+      meteor.center.x = -meteor.size.width / 2;
+
+      board.removeInActiveObjects();
+
+      assert.equal(board.meteors.length, 0)
+    });
+
+    it('on the left, the board removes the meteor from the meteor array', function(){
+      let board = new Board();
+      let player = board.addPlayer();
+      let meteor = board.addMeteor();
+
+      assert.equal(board.players.length, 1)
+      assert.equal(board.meteors.length, 1)
+
+      meteor.center.x = board.width + meteor.size.width / 2;
+
+      board.removeInActiveObjects();
+
+      assert.equal(board.meteors.length, 0)
+    });
+  });
 });
