@@ -42,12 +42,13 @@ describe('Player', function() {
     });
   });
 
-  describe('movement', function() {
+  xdescribe('movement', function() {
     it('should move left when left arrow is pressed', function() {
       let player = new Player(this.board);
       let originalCenterX = player.center.x;
+      let result = player.keyboarder.isDown();
 
-      player.moveLeft();
+      player.update();
 
       assert.equal(player.center.x, originalCenterX - 7);
     });
