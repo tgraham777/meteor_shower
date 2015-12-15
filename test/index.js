@@ -3,3 +3,4 @@ require('./player-test');
 require('./meteor-test');
 require('./bullet-test');
 require('./score-test');
+require('./collision-test');
