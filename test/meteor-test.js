@@ -40,10 +40,18 @@ describe('Meteor', function() {
       assert.isBelow(meteor.size.height, 42);
     });
 
-    it('should have a point value based on its width and height', function() {
-      let meteor = new Meteor(this.board);
+    it('should have a height and width that can be manually set', function() {
+      let meteor = new Meteor(this.board, 20, 30);
+      assert.equal(meteor.size.width, 20);
+      assert.equal(meteor.size.height, 30);
+    });
 
-      assert.equal(meteor.pointValue, Math.floor(-((meteor.size.width + meteor.size.height) / 2) + 42));
+    it('should have a point value based on its width and height', function() {
+      let meteor = new Meteor(this.board, 20, 30);
+      assert.equal(meteor.pointValue, 17);
+
+      let meteor2 = new Meteor(this.board, 20, 40);
+      assert.equal(meteor2.pointValue, 12);
     });
 
     it('should be included in the board\'s array of meteor objects', function() {
