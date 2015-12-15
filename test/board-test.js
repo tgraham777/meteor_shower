@@ -37,44 +37,14 @@ describe('Board', function() {
       assert.isArray(board.meteors);
     });
 
-    it('should start with an empty array of impacted meteor objects', function() {
+    it('should start with an empty array of destroyed meteor objects', function() {
       let board = new Board();
-      assert.isArray(board.impactedMeteors);
+      assert.isArray(board.meteorsDestroyed);
     });
 
     it('should start with an empty player object array', function() {
       let board = new Board();
       assert.isArray(board.players);
-    });
-
-    it('can calculate the total score', function(){
-      let board  = new Board();
-      let player = board.addPlayer();
-      let bullet1 = board.addBullet();
-      let meteor1 = new Meteor(board, 20, 20);
-      let bullet2 = board.addBullet();
-      let meteor2 = new Meteor(board, 30, 30);
-      let bullet3 = board.addBullet();
-      let meteor3 = new Meteor(board, 40, 40);
-
-      meteor1.center.x = 10;
-      meteor1.center.y = 400;
-      bullet1.center.x = 10;
-      bullet1.center.y = 400;
-
-      meteor2.center.x = 200;
-      meteor2.center.y = 5;
-      bullet2.center.x = 200;
-      bullet2.center.y = 5;
-
-      meteor3.center.x = 400;
-      meteor3.center.y = 5;
-      bullet3.center.x = 400;
-      bullet3.center.y = 400;
-
-      board.removeInActiveObjects();
-
-      assert.equal(board.calculateScore(), 34)
     });
 
     it('can join sub-arrays of the players, bullets, and meteors into a single oblects array', function(){
@@ -238,7 +208,7 @@ describe('Board', function() {
 
       assert.equal(board.bullets.length, 3)
       assert.equal(board.meteors.length, 3)
-      assert.equal(board.impactedMeteors.length, 0)
+      assert.equal(board.meteorsDestroyed.length, 0)
       assert.equal(board.players.length, 1)
 
       meteor1.center.x = 10;
@@ -260,13 +230,13 @@ describe('Board', function() {
 
       assert.equal(board.bullets.length, 2)
       assert.equal(board.meteors.length, 2)
-      assert.equal(board.impactedMeteors.length, 1)
+      assert.equal(board.meteorsDestroyed.length, 1)
       assert.equal(board.players.length, 1)
       assert.equal(board.bullets[0], bullet1)
       assert.equal(board.meteors[0], meteor1)
       assert.equal(board.bullets[1], bullet3)
       assert.equal(board.meteors[1], meteor3)
-      assert.equal(board.impactedMeteors[0], meteor2)
+      assert.equal(board.meteorsDestroyed[0], meteor2)
       assert.equal(board.players[0], player)
     });
   });
