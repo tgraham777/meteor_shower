@@ -28,8 +28,8 @@ describe('Player', function() {
     });
 
     it('should have a default size of 16 by 16 pixels', function() {
-      assert.equal(this.player.size.width, 16);
-      assert.equal(this.player.size.height, 16);
+      assert.equal(this.player.size.width, 50);
+      assert.equal(this.player.size.height, 50);
     });
 
     it('should be included in the board\'s array of players', function() {
