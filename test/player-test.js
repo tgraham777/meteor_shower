@@ -7,59 +7,33 @@ const Board = require('../lib/board');
 describe('Player', function() {
   beforeEach(function() {
     this.board = new Board();
+    this.player = new Player(this.board);
   });
 
   describe('instantiation', function() {
     it('should instantiate a new player', function() {
-      let player = new Player(this.board);
-      assert.isObject(player);
+      assert.isObject(this.player);
     });
 
     it('should reference the board object passed as the first parameter', function() {
-      let player = new Player(this.board);
-      assert.equal(player.board, this.board);
+      assert.equal(this.player.board, this.board);
     });
 
     it('should have a default center x coordinate of half the board width', function() {
-      let player = new Player(this.board);
-      assert.equal(player.center.x, this.board.width / 2);
+      assert.equal(this.player.center.x, this.board.width / 2);
     });
 
     it('should have a constant center y coordinate ten less than board height', function() {
-      let player = new Player(this.board);
-      assert.equal(player.center.y, this.board.height-10);
+      assert.equal(this.player.center.y, this.board.height-10);
     });
 
     it('should have a default size of 16 by 16 pixels', function() {
-      let player = new Player(this.board);
-      assert.equal(player.size.width, 16);
-      assert.equal(player.size.height, 16);
+      assert.equal(this.player.size.width, 16);
+      assert.equal(this.player.size.height, 16);
     });
 
     it('should be included in the board\'s array of players', function() {
-      let player = new Player(this.board);
-      assert.include(this.board.players, player);
-    });
-  });
-
-  xdescribe('movement', function() {
-    it('should move left when left arrow is pressed', function() {
-      let player = new Player(this.board);
-      let originalCenterX = player.center.x;
-      let result = player.keyboarder.isDown();
-
-      player.update();
-
-      assert.equal(player.center.x, originalCenterX - 7);
-    });
-
-    it('should move right when right arrow is pressed', function() {
-      let player = new Player(this.board);
-      let originalCenterX = player.center.x;
-
-      player.moveRight();
-
-      assert.equal(player.center.x, originalCenterX + 7);
+      assert.include(this.board.players, this.player);
     });
   });
 });
