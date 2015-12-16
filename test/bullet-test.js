@@ -31,10 +31,10 @@ describe('Bullet', function() {
       assert.equal(this.player.y, bullet.y);
     });
 
-    it('should have a default size of 5 by 5 pixels', function() {
+    it('should have a default size of 10 by 10 pixels', function() {
       let bullet = new Bullet(this.board);
-      assert.equal(bullet.size.width, 5);
-      assert.equal(bullet.size.height, 5);
+      assert.equal(bullet.size.width, 10);
+      assert.equal(bullet.size.height, 10);
     });
 
     it('should be included in the board\'s array of bullets', function() {
