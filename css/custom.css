@@ -13,6 +13,16 @@ canvas {
 }
 
 .jumbotron {
-  height: 250px;
+  background-image: url('../images/background/turing-logo.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 200px 200px;
+  height: 200px;
   background-color: teal;
+  color: black;
+  text-align: left;
+}
+
+h2 {
+  text-decoration: underline;
 }
