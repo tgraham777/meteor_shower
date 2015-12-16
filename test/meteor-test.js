@@ -30,10 +30,10 @@ describe('Meteor', function() {
     });
 
     it('should have a height and width between 16 and 41 pixels', function() {
-      assert.isAbove(this.meteor.size.width, 15);
-      assert.isBelow(this.meteor.size.width, 42);
-      assert.isAbove(this.meteor.size.height, 15);
-      assert.isBelow(this.meteor.size.height, 42);
+      assert.isAbove(this.meteor.size.width, 14);
+      assert.isBelow(this.meteor.size.width, 66);
+      assert.isAbove(this.meteor.size.height, 14);
+      assert.isBelow(this.meteor.size.height, 66);
     });
 
     it('should have a height and width that can be manually set', function() {
@@ -44,10 +44,10 @@ describe('Meteor', function() {
 
     it('should have a point value based on its width and height', function() {
       let meteor = new Meteor(this.board, 1, 20, 30);
-      assert.equal(meteor.pointValue, 32);
+      assert.equal(meteor.pointValue, 41);
 
       let meteor2 = new Meteor(this.board, 1, 20, 40);
-      assert.equal(meteor2.pointValue, 27);
+      assert.equal(meteor2.pointValue, 36);
     });
 
     it('should be included in the board\'s array of this.meteor objects', function() {
@@ -67,16 +67,16 @@ describe('Meteor', function() {
       assert.isBelow(meteor.velocity.y, 5);
     });
 
-    it('should have a random Y velocity between 3 and 6 on Level 2 & 3', function() {
+    it('should have a random Y velocity between 2 and 5 on Level 2 & 3', function() {
       let meteor = new Meteor(this.board, 3);
-      assert.isAbove(meteor.velocity.y, 2);
-      assert.isBelow(meteor.velocity.y, 7);
+      assert.isAbove(meteor.velocity.y, 1);
+      assert.isBelow(meteor.velocity.y, 6);
     });
 
-    it('should have a random Y velocity between 5 and 8 on Level 4 & above', function() {
+    it('should have a random Y velocity between 4 and 7 on Level 4 & above', function() {
       let meteor = new Meteor(this.board, 5);
-      assert.isAbove(meteor.velocity.y, 4);
-      assert.isBelow(meteor.velocity.y, 9);
+      assert.isAbove(meteor.velocity.y, 3);
+      assert.isBelow(meteor.velocity.y, 8);
     });
 
     it('should move from its starting position', function() {
