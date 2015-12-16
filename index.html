@@ -9,9 +9,23 @@
   <h3 id="objective">Meteors are crashing to Earth! Use your Cannon to take them out before they hit the ground!</h3>
   <h4 id="controls">Controls: MOVE with left and right arrows, FIRE by holding spacebar</h4>
   <h4 id="tip">Tip: Smaller meteors are worth more points. As you accumulate points you will move through levels and the game will get harder!</h4>
+
   <canvas id="screen" width="450" height="400" style="border:3px solid #777;"></canvas>
-  <h2 id="score"></h2>
-  <h2 id="meteors-destroyed"></h2>
+
+  <table style="width:30%">
+    <tr>
+      <td>Level</td>
+      <td>Time</td>
+      <td>Meteors Destroyed</td>
+      <td>Score</td>
+    </tr>
+    <tr>
+      <td id="level"></td>
+      <td id="time"></td>
+      <td id="meteors-destroyed"></td>
+      <td id="score"></td>
+    </tr>
+  </table>
 
   <script src="main.bundle.js"></script>
 </body>
