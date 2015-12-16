@@ -5,24 +5,49 @@ body {
 }
 
 canvas {
-  background-image: url('../images/background/canvas.jpg');
+  background-image: url('../images/background/turing-logo2.jpg');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 200px 300px;
+  background-size: 250px 250px;
   position: sticky;
 }
 
 .jumbotron {
-  background-image: url('../images/background/turing-logo.png');
-  background-repeat: no-repeat;
-  background-position: right;
-  background-size: 200px 200px;
-  height: 200px;
-  background-color: teal;
-  color: black;
-  text-align: left;
+  height: 0px;
+  background-color: #DDD;
 }
 
-h2 {
-  text-decoration: underline;
+#title {
+  margin-top: -20px;
+  font-family: fantasy;
+  color: #AA2222;
+  text-align: center;
+  font-size: 35px;
+}
+
+#center {
+  width: 600px;
+  margin-left: auto;
+  margin-right: -20px;
+}
+
+#objective {
+  margin-top: -5px;
+  text-align: center;
+}
+
+#controls {
+  font-size: 15px;
+  padding-top: 10px;
+  color: #888;
+}
+
+#tip {
+  font-size: 15px;
+  color: #888;
+}
+
+.col-md-6.col-md-offset-3 {
+  text-align: center;
+  padding-top: 50px;
 }
